@@ -15,7 +15,7 @@ Q <= 0;
 end
 
 
-always @(posedge clock) begin
+always @(posedge clock or posedge reset) begin
 if (reset)
 Q <= 0;
 else

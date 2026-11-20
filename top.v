@@ -71,7 +71,7 @@ full_adder part1
     (
         .D(sum[0]),
         .Q(Q1[0]),
-        .reset(btnU | outpt),
+        .reset(rst),
         .clock(btnC),
         .Qnot()
     );
@@ -80,7 +80,7 @@ full_adder part1
     (
         .D(sum[1]),
         .Q(Q1[1]),
-        .reset(btnU | outpt),
+        .reset(rst),
         .clock(btnC),
         .Qnot()
     );
@@ -89,11 +89,12 @@ full_adder part1
     (
         .D(sum[2]),
         .Q(Q1[2]),
-        .reset(btnU | outpt),
+        .reset(rst),
         .clock(btnC),
         .Qnot()
     );
-
+    
+wire out;
 assign outpt = Q1[0] & ~Q1[1] & Q1[2];
 assign led[6] = out;   
 assign outlogic = outpt ^ out;
